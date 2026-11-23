@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { COMPANY_CONTACT } from "@/data/company";
-import { PhoneCallIcon, ArrowUpRightIcon } from "./Icons";
+import { ArrowUpRightIcon } from "./Icons";
 import { NavLogo } from "./NavLogo";
 import { getTechDeviconClass } from "@/lib/devicon";
 

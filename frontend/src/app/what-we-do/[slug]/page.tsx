@@ -15,7 +15,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = SERVICES_CATALOG.find((s) => s.slug === slug);
+  const decodedSlug = decodeURIComponent(slug);
+  const service = SERVICES_CATALOG.find((s) => s.slug === decodedSlug || s.slug === slug);
   if (!service) return { title: "Service Not Found" };
   return {
     title: `${service.title} | WebNote Technologies`,
@@ -25,7 +26,8 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = SERVICES_CATALOG.find((s) => s.slug === slug);
+  const decodedSlug = decodeURIComponent(slug);
+  const service = SERVICES_CATALOG.find((s) => s.slug === decodedSlug || s.slug === slug);
 
   if (!service) {
     notFound();
@@ -193,13 +195,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     href={`tel:${COMPANY_CONTACT.usPhone}`}
                     className="block text-sm font-bold text-blue-700 hover:underline"
                   >
-                    US: {COMPANY_CONTACT.usPhoneDisplay}
+                    International: {COMPANY_CONTACT.usPhoneDisplay}
                   </a>
                   <a
                     href={`tel:${COMPANY_CONTACT.indiaPhone1}`}
                     className="block text-xs font-semibold text-slate-600 hover:text-blue-700 mt-1"
                   >
-                    IN: {COMPANY_CONTACT.indiaPhone1Display}
+                    India: {COMPANY_CONTACT.indiaPhone1Display}
                   </a>
                 </div>
 

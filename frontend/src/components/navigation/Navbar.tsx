@@ -76,10 +76,12 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setActiveMenu(null);
     setIsMobileOpen(false);
-  }, [pathname]);
+  }
 
   return (
     <>

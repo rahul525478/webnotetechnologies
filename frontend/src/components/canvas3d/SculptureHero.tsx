@@ -1086,12 +1086,14 @@ export function SculptureHero({
   const mobileRef = useRef(false);
 
   const layout = useRef({ scale: sculptureScale, mobileScale: mobileSculptureScale, x: sculptureX, y: sculptureY });
-  layout.current = {
-    scale: clamp(sculptureScale, 0.3, 3),
-    mobileScale: clamp(mobileSculptureScale, 0.3, 3),
-    x: sculptureX,
-    y: sculptureY,
-  };
+  useEffect(() => {
+    layout.current = {
+      scale: clamp(sculptureScale, 0.3, 3),
+      mobileScale: clamp(mobileSculptureScale, 0.3, 3),
+      x: sculptureX,
+      y: sculptureY,
+    };
+  }, [sculptureScale, mobileSculptureScale, sculptureX, sculptureY]);
 
   const bgRgb = useMemo(() => hexToRgb(background, [0.98, 0.976, 0.965]), [background]);
   const imgBgRgb = useMemo(
@@ -1144,7 +1146,9 @@ export function SculptureHero({
   );
 
   const optsRef = useRef(engineOpts);
-  optsRef.current = engineOpts;
+  useEffect(() => {
+    optsRef.current = engineOpts;
+  }, [engineOpts]);
 
   const relayout = useCallback(() => {
     const root = rootRef.current;
@@ -1331,6 +1335,7 @@ export function SculptureHero({
     >
       <style>{CSS}</style>
       <div ref={stageRef} className="sh-stage" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           ref={imgRef}
           className="sh-fallback"

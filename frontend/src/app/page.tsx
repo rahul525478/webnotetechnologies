@@ -320,7 +320,7 @@ export default function HomePage() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-emerald-500/30">
-            US & Global Market Focus
+            Enterprise Growth & GEO
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold mt-5 mb-6 tracking-tight leading-tight">
             Digital Marketing & GEO Built for Measurable Revenue
@@ -492,12 +492,12 @@ export default function HomePage() {
                 Ready to Accelerate Your Digital Roadmap?
               </h2>
               <p className="text-slate-600 leading-relaxed mb-8 font-normal text-base">
-                Speak directly with our solutions architects. We provide comprehensive technical scoping, transparent delivery timelines, and dedicated engineering pods for clients across the United States, Europe, and Asia.
+                Speak directly with our solutions architects. We provide comprehensive technical scoping, transparent delivery timelines, and dedicated engineering pods for enterprise clients globally.
               </p>
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-center space-x-3 text-sm text-slate-700">
-                  <span className="font-bold text-slate-900">US Inquiries:</span>
+                  <span className="font-bold text-slate-900">International Desk:</span>
                   <a href={`tel:${COMPANY_CONTACT.usPhone}`} className="text-blue-600 hover:underline font-semibold">
                     {COMPANY_CONTACT.usPhoneDisplay}
                   </a>

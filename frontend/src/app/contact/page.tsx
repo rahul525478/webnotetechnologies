@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { COMPANY_CONTACT } from "@/data/company";
 import { GlobalGlobe3DCanvas } from "@/components/canvas3d/GlobalGlobe3DCanvas";
 import { PhoneCallIcon, MailIcon, MapPinIcon } from "@/components/navigation/Icons";

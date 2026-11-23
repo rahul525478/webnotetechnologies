@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { CAREER_OPENINGS, COMPANY_CONTACT } from "@/data/company";
 import { Hero3DCanvas } from "@/components/canvas3d/Hero3DCanvas";
 
@@ -92,7 +91,7 @@ export default function CareerPage() {
               </div>
               <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">High-Impact Global Projects</h3>
               <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                Work directly with US and international enterprise clients building mission-critical platforms, not disposable maintenance tickets.
+                Work directly with global enterprise clients building mission-critical platforms, not disposable maintenance tickets.
               </p>
             </div>
 
@@ -290,7 +289,7 @@ export default function CareerPage() {
                     <input
                       type="tel"
                       required
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="+91 98765 43210 / +1 (555) 000-0000"
                       value={formData.phone}
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
