@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "Mobile App Development",
     "Digital Marketing Agency",
     "AI Automation",
-    "US Technology Partner",
+    "Global Technology Partner",
     "Custom Software Development",
   ],
   authors: [{ name: COMPANY_CONTACT.companyName, url: "https://webnotetechnologies.com" }],

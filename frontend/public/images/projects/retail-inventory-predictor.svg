@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#190e2b"/>
+      <stop offset="50%" stop-color="#21153b"/>
+      <stop offset="100%" stop-color="#10081c"/>
+    </linearGradient>
+    <linearGradient id="rt-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="rt-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#341f59" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1f1138" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#rt-bg)"/>
+  <circle cx="700" cy="100" r="170" fill="#f97316" opacity="0.14" filter="blur(60px)"/>
+  <circle cx="120" cy="360" r="160" fill="#06b6d4" opacity="0.12" filter="blur(50px)"/>
+
+  <!-- Window Frame -->
+  <rect x="30" y="30" width="740" height="390" rx="16" fill="#170c2a" stroke="#4c1d95" stroke-width="1.5"/>
+  <rect x="30" y="30" width="740" height="44" rx="16" fill="#2e1065"/>
+  <rect x="30" y="58" width="740" height="16" fill="#2e1065"/>
+
+  <circle cx="56" cy="52" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="52" r="5" fill="#f59e0b"/>
+  <circle cx="92" cy="52" r="5" fill="#10b981"/>
+  <text x="120" y="56" fill="#fed7aa" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Retail Inventory Predictor • Supply Chain Disruption Forecaster</text>
+  <rect x="620" y="42" width="134" height="20" rx="10" fill="#7c2d12" stroke="#ea580c" stroke-width="1"/>
+  <circle cx="632" cy="52" r="3" fill="#ffedd5"/>
+  <text x="642" y="56" fill="#ffedd5" font-family="system-ui, sans-serif" font-size="10" font-weight="700">PREDICTIVE ACCURACY 92%</text>
+
+  <!-- Left: Predictive Confidence & Model Telemetry -->
+  <rect x="54" y="94" width="240" height="302" rx="12" fill="url(#rt-card)" stroke="#4c1d95" stroke-width="1"/>
+  <text x="74" y="124" fill="#fed7aa" font-family="system-ui, sans-serif" font-size="11" font-weight="700">TENSORFLOW ML PIPELINE</text>
+  <text x="74" y="156" fill="#ffffff" font-family="system-ui, sans-serif" font-size="30" font-weight="800">92.0%</text>
+  <text x="74" y="174" fill="#fb923c" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Disruption Forecast Precision</text>
+
+  <rect x="74" y="190" width="190" height="6" rx="3" fill="#1e1035"/>
+  <rect x="74" y="190" width="175" height="6" rx="3" fill="url(#rt-accent)"/>
+
+  <text x="74" y="226" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Inference Latency</text>
+  <text x="74" y="246" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">18ms <tspan fill="#38bdf8" font-size="11">SageMaker</tspan></text>
+
+  <text x="74" y="280" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">SKU Data Pipeline</text>
+  <text x="74" y="300" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">2.4M items / day</text>
+
+  <text x="74" y="334" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Early Warning Window</text>
+  <text x="74" y="354" fill="#34d399" font-family="system-ui, sans-serif" font-size="16" font-weight="700">14 Days Lead Time</text>
+
+  <!-- Right: Stock Velocity & Predictive Curve -->
+  <rect x="310" y="94" width="436" height="302" rx="12" fill="url(#rt-card)" stroke="#4c1d95" stroke-width="1"/>
+  <text x="334" y="124" fill="#fed7aa" font-family="system-ui, sans-serif" font-size="11" font-weight="700">MULTI-REGIONAL SUPPLY CHAIN TELEMETRY (PYTHON / SAGEMAKER)</text>
+
+  <!-- Stock Velocity Bars -->
+  <rect x="334" y="146" width="388" height="60" rx="8" fill="#1b0e30" stroke="#6d28d9" stroke-width="1"/>
+  <text x="350" y="170" fill="#f97316" font-family="system-ui, sans-serif" font-size="11" font-weight="700">WAREHOUSE HUB NA-EAST • STOCK REORDER TRIGGERED</text>
+  <text x="350" y="190" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="10">Predicted stockout in 72 hours • Automated purchase order #PO-4091 dispatched</text>
+
+  <!-- Forecast Graph -->
+  <rect x="334" y="218" width="388" height="164" rx="8" fill="#1b0e30" stroke="#6d28d9" stroke-width="1"/>
+  <text x="350" y="240" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700">DEMAND VS. BUFFER VELOCITY</text>
+
+  <!-- Chart lines -->
+  <path d="M 350 340 L 400 310 L 450 325 L 500 270 L 550 280 L 600 250 L 650 260 L 700 230" fill="none" stroke="#f97316" stroke-width="3"/>
+  <path d="M 350 360 L 400 345 L 450 350 L 500 330 L 550 335 L 600 315 L 650 320 L 700 300" fill="none" stroke="#06b6d4" stroke-width="2" stroke-dasharray="4 4"/>
+  
+  <circle cx="700" cy="230" r="5" fill="#f97316"/>
+  <text x="560" y="365" fill="#a78bfa" font-family="system-ui, sans-serif" font-size="10">TensorFlow • AWS SageMaker • Python</text>
+</svg>

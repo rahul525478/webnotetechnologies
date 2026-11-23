@@ -508,6 +508,126 @@ export const CAREER_OPENINGS: CareerOpening[] = [
 
 export const PORTFOLIO_CASES = PORTFOLIO_PROJECTS;
 
+export interface EnterpriseShowcaseProject {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+}
+
+export const ENTERPRISE_SHOWCASE_PROJECTS: EnterpriseShowcaseProject[] = [
+  {
+    id: "fintech-support-ai",
+    category: "FinTech Support AI Agent",
+    title: "FinTech Support AI Agent",
+    description:
+      "An autonomous, highly secure financial support agent capable of resolving 80% of tier-1 inquiries through advanced Retrieval-Augmented Generation (RAG) and dynamic tool-calling.",
+    technologies: ["LangChain", "OpenAI", "Pinecone", "Next.js"],
+    image: "/images/projects/fintech-agent.svg",
+  },
+  {
+    id: "healthdata-semantic-search",
+    category: "Project Showcase",
+    title: "HealthData Semantic Search",
+    description:
+      "A rigorously HIPAA-compliant medical document retrieval infrastructure, utilizing sophisticated vector embeddings to ensure precise, secure access to critical patient data.",
+    technologies: ["Weaviate", "Llama 3", "FastAPI"],
+    image: "/images/projects/healthdata-semantic-search.svg",
+  },
+  {
+    id: "marketing-copy-generator",
+    category: "Gen AI",
+    title: "Marketing Copy Generator",
+    description:
+      "An enterprise-grade SaaS ecosystem that leverages generative AI to dynamically produce brand-compliant marketing copy across omnichannel campaigns.",
+    technologies: ["Vue.js", "Anthropic Claude", "Redis"],
+    image: "/images/projects/marketing-copy-generator.svg",
+  },
+  {
+    id: "legal-contract-analyzer",
+    category: "NLP",
+    title: "Legal Contract Analyzer",
+    description:
+      "A proprietary Natural Language Processing pipeline engineered to systematically identify, categorize, and mitigate risk clauses within dense legal contracts.",
+    technologies: ["PyTorch", "Hugging Face", "React"],
+    image: "/images/projects/legal-contract-analyzer.svg",
+  },
+  {
+    id: "personalized-ai-tutor",
+    category: "LLM App",
+    title: "Personalized AI Tutor",
+    description:
+      "Adaptive learning system that tailors explanations based on student comprehension.",
+    technologies: ["Mistral", "Neo4j", "Node.js"],
+    image: "/images/projects/personalized-ai-tutor.svg",
+  },
+  {
+    id: "retail-inventory-predictor",
+    category: "Machine Learning",
+    title: "Retail Inventory Predictor",
+    description:
+      "Machine learning models predicting supply chain disruptions with 92% accuracy.",
+    technologies: ["TensorFlow", "AWS SageMaker", "Python"],
+    image: "/images/projects/retail-inventory-predictor.svg",
+  },
+];
+
+export interface CustomerReview {
+  reviewer: string;
+  review: string;
+  rating: number;
+}
+
+export const CUSTOMER_REVIEWS: CustomerReview[] = [
+  {
+    reviewer: "Rahul Ghosh",
+    review:
+      "I am currently working with Webnote Technologies as a Web Consultant, and my experience has been excellent so far. The company provides a professional and supportive work environment with great opportunities to learn, grow, and enhance my …",
+    rating: 5,
+  },
+  {
+    reviewer: "Vishal Singh",
+    review:
+      "Great company to deal with Very professional employee and excellent service. I am highly satisfied and would definitely recommend them",
+    rating: 5,
+  },
+  {
+    reviewer: "Suan Wheels",
+    review:
+      "Great experience with Webnote Technologies. Professional team, smooth communication, and quality work. Highly satisfied with their service.",
+    rating: 5,
+  },
+  {
+    reviewer: "P P",
+    review: "Great experience working with them",
+    rating: 5,
+  },
+  {
+    reviewer: "Sanjib Prasad",
+    review: "professional and friendly employees",
+    rating: 5,
+  },
+  {
+    reviewer: "Monu",
+    review:
+      "A promising IT startup with creativity, quality, and commitment all together.",
+    rating: 5,
+  },
+  {
+    reviewer: "Nazmin Sultana",
+    review: "Good Service",
+    rating: 5,
+  },
+  {
+    reviewer: "Alvaro Payeras",
+    review:
+      "Great professional team with Rajdeep Kumar. Results oriented and always available for any consultation.",
+    rating: 5,
+  },
+];
+
 export interface Testimonial {
   quote: string;
   author: string;
@@ -515,24 +635,10 @@ export interface Testimonial {
   company: string;
 }
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    quote: "WebNote Technologies engineered our platform with sub-second responsiveness and flawless 3D interactions. Their senior team delivered our US enterprise product ahead of schedule.",
-    author: "David Sterling",
-    role: "VP of Product Strategy",
-    company: "Apex Global Systems (San Francisco, CA)",
-  },
-  {
-    quote: "Their digital marketing and technical SEO strategy expanded our organic pipeline in the US market by 180% within four months. A truly exceptional technical and growth partner.",
-    author: "Elena Rostova",
-    role: "Chief Operating Officer",
-    company: "VentureScale Health (New York, NY)",
-  },
-  {
-    quote: "The cleanest TypeScript and Next.js architecture we have seen from an agency. Zero technical debt, rigorous automated testing, and transparent daily communication.",
-    author: "Marcus Thorne",
-    role: "Chief Technology Officer",
-    company: "OmniCore Logistics (London, UK)",
-  },
-];
+export const TESTIMONIALS: Testimonial[] = CUSTOMER_REVIEWS.map((r) => ({
+  quote: r.review,
+  author: r.reviewer,
+  role: "Verified Client Review",
+  company: "★★★★★ 5-Star Rating",
+}));
 

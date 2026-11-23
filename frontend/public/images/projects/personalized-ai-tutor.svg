@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tu-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1736"/>
+      <stop offset="50%" stop-color="#142654"/>
+      <stop offset="100%" stop-color="#081024"/>
+    </linearGradient>
+    <linearGradient id="tu-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="tu-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1c356b" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#102247" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#tu-bg)"/>
+  <circle cx="700" cy="90" r="170" fill="#3b82f6" opacity="0.14" filter="blur(60px)"/>
+  <circle cx="120" cy="370" r="160" fill="#10b981" opacity="0.12" filter="blur(50px)"/>
+
+  <!-- Window Frame -->
+  <rect x="30" y="30" width="740" height="390" rx="16" fill="#0d1b38" stroke="#1d4ed8" stroke-width="1.5"/>
+  <rect x="30" y="30" width="740" height="44" rx="16" fill="#1e3a8a"/>
+  <rect x="30" y="58" width="740" height="16" fill="#1e3a8a"/>
+
+  <circle cx="56" cy="52" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="52" r="5" fill="#f59e0b"/>
+  <circle cx="92" cy="52" r="5" fill="#10b981"/>
+  <text x="120" y="56" fill="#bfdbfe" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Personalized AI Tutor • Adaptive Learning System</text>
+  <rect x="620" y="42" width="134" height="20" rx="10" fill="#172554" stroke="#2563eb" stroke-width="1"/>
+  <circle cx="632" cy="52" r="3" fill="#93c5fd"/>
+  <text x="642" y="56" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="10" font-weight="700">MISTRAL + NEO4J</text>
+
+  <!-- Left: Comprehension Radar & Mastery Track -->
+  <rect x="54" y="94" width="280" height="302" rx="12" fill="url(#tu-card)" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="74" y="124" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="11" font-weight="700">STUDENT COMPREHENSION MODEL</text>
+
+  <text x="74" y="156" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="800">Advanced Calculus</text>
+  <text x="74" y="174" fill="#34d399" font-family="system-ui, sans-serif" font-size="11">Mastery Index: 89.4% (Adaptive Difficulty Level 4)</text>
+
+  <!-- Knowledge Graph Nodes -->
+  <circle cx="120" cy="230" r="16" fill="#1e40af" stroke="#60a5fa" stroke-width="2"/>
+  <text x="100" y="234" fill="#ffffff" font-family="system-ui, sans-serif" font-size="9" font-weight="700">Limits</text>
+
+  <circle cx="210" cy="210" r="20" fill="#047857" stroke="#34d399" stroke-width="2"/>
+  <text x="186" y="214" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10" font-weight="700">Derivatives</text>
+
+  <circle cx="160" cy="300" r="18" fill="#1e3a8a" stroke="#93c5fd" stroke-width="2"/>
+  <text x="140" y="304" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10" font-weight="700">Integrals</text>
+
+  <circle cx="260" cy="280" r="16" fill="#065f46" stroke="#6ee7b7" stroke-width="2"/>
+  <text x="242" y="284" fill="#ffffff" font-family="system-ui, sans-serif" font-size="9" font-weight="700">Series</text>
+
+  <line x1="136" y1="228" x2="190" y2="214" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="204" y1="228" x2="168" y2="284" stroke="#34d399" stroke-width="2"/>
+  <line x1="226" y1="224" x2="252" y2="266" stroke="#6ee7b7" stroke-width="2"/>
+
+  <text x="74" y="360" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="11">Knowledge Graph: <tspan fill="#ffffff" font-weight="700">Neo4j GraphDB</tspan></text>
+  <text x="74" y="378" fill="#bfdbfe" font-family="system-ui, sans-serif" font-size="10">Node.js Microservices • Real-Time WebSockets</text>
+
+  <!-- Right: Adaptive Explanation Canvas -->
+  <rect x="350" y="94" width="396" height="302" rx="12" fill="url(#tu-card)" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="374" y="124" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="11" font-weight="700">DYNAMIC EXPLANATION TAILORING</text>
+
+  <rect x="374" y="142" width="348" height="74" rx="8" fill="#0f1f42" stroke="#2563eb" stroke-width="1"/>
+  <text x="390" y="164" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="11" font-weight="700">STUDENT INQUIRY:</text>
+  <text x="390" y="182" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11">"Why does the derivative of e^x equal itself intuitively?"</text>
+  <text x="390" y="200" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="10">Comprehension telemetry: Visual learner, geometry preference detected</text>
+
+  <rect x="374" y="226" width="348" height="154" rx="8" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+  <text x="390" y="248" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11" font-weight="700">MISTRAL 7B ADAPTIVE RESPONSE:</text>
+  <text x="390" y="270" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11">"Imagine a bank account compounding continuously where the growth rate</text>
+  <text x="390" y="288" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11">at any exact instant is strictly identical to your account balance..."</text>
+  <text x="390" y="316" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11 font-weight=600">Visual slope tangent generated: f'(x) = f(x) for all x in Real.</text>
+  <rect x="390" y="336" width="160" height="26" rx="6" fill="#047857"/>
+  <text x="404" y="353" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10" font-weight="700">INTERACTIVE STEP CHECK &gt;</text>
+</svg>

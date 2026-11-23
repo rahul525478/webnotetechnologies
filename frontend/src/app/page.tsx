@@ -6,43 +6,85 @@ import { SculptureHero } from "@/components/canvas3d/SculptureHero";
 import { GlobalGlobe3DCanvas } from "@/components/canvas3d/GlobalGlobe3DCanvas";
 import { IconCloud } from "@/components/ui/interactive-icon-cloud";
 import { slugs as techSlugs } from "@/components/ui/demo";
-import { getTechDeviconClass } from "@/lib/devicon";
+import { TechIcon } from "@/components/ui/TechIcon";
 import {
   COMPANY_CONTACT,
   SERVICES_CATALOG,
-  PORTFOLIO_CASES,
-  TESTIMONIALS,
+  ENTERPRISE_SHOWCASE_PROJECTS,
+  CUSTOMER_REVIEWS,
 } from "@/data/company";
 
 export const metadata: Metadata = {
   title: "WebNote Technologies | Enterprise Digital Engineering & AI Growth Agency",
   description:
-    "We build digital experiences that drive growth. Enterprise web development, scalable mobile applications, AI automation, and US market digital marketing.",
+    "We build digital experiences that drive growth. Enterprise web development, scalable mobile applications, AI automation, and high-ROI digital marketing.",
 };
 
-const FEATURED_TICKER_TECHS = [
+const WORLDWIDE_TECH_SHOWCASE = [
+  // Frontend
+  { name: "React", icon: "devicon-react-original colored" },
   { name: "Next.js 16", icon: "devicon-nextjs-plain" },
+  { name: "Vue.js", icon: "devicon-vuejs-plain colored" },
+  { name: "Angular", icon: "devicon-angular-plain colored" },
+  { name: "Svelte", icon: "devicon-svelte-plain colored" },
+  { name: "TypeScript", icon: "devicon-typescript-plain colored" },
+  { name: "JavaScript", icon: "devicon-javascript-plain colored" },
+  { name: "Tailwind CSS", icon: "devicon-tailwindcss-original colored" },
+  { name: "HTML5 & CSS3", icon: "devicon-html5-plain colored" },
+
+  // Backend & Languages
+  { name: "Node.js", icon: "devicon-nodejs-plain colored" },
+  { name: "Python", icon: "devicon-python-plain colored" },
+  { name: "Java", icon: "devicon-java-plain colored" },
+  { name: "Go", icon: "devicon-go-line colored" },
+  { name: "Rust", icon: "devicon-rust-line colored" },
+  { name: "PHP", icon: "devicon-php-plain colored" },
+  { name: "Laravel", icon: "devicon-laravel-line colored" },
+  { name: "Spring Boot", icon: "devicon-spring-original colored" },
+  { name: "FastAPI", icon: "devicon-fastapi-plain colored" },
+  { name: "Django", icon: "devicon-django-plain colored" },
+  { name: "C# .NET", icon: "devicon-dotnetcore-plain colored" },
+
+  // Databases
+  { name: "PostgreSQL", icon: "devicon-postgresql-plain colored" },
+  { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
+  { name: "Redis", icon: "devicon-redis-plain colored" },
+  { name: "MySQL", icon: "devicon-mysql-original colored" },
+  { name: "Supabase", icon: "devicon-supabase-plain colored" },
+  { name: "SQLite", icon: "devicon-sqlite-plain colored" },
+
+  // Mobile
+  { name: "Flutter", icon: "devicon-flutter-plain colored" },
+  { name: "React Native", icon: "devicon-react-original colored" },
+  { name: "Swift", icon: "devicon-swift-plain colored" },
+  { name: "Kotlin", icon: "devicon-kotlin-plain colored" },
+
+  // AI & Machine Learning
+  { name: "PyTorch", icon: "devicon-pytorch-original colored" },
+  { name: "TensorFlow", icon: "devicon-tensorflow-line colored" },
+  { name: "Hugging Face", icon: "devicon-huggingface-plain colored" },
+
+  // Cloud & DevOps
   { name: "AWS Cloud", icon: "devicon-amazonwebservices-plain-wordmark colored" },
   { name: "Google Cloud", icon: "devicon-googlecloud-plain colored" },
-  { name: "TypeScript", icon: "devicon-typescript-plain colored" },
-  { name: "Python AI", icon: "devicon-python-plain colored" },
   { name: "Docker", icon: "devicon-docker-plain colored" },
-  { name: "PostgreSQL", icon: "devicon-postgresql-plain colored" },
-  { name: "Flutter", icon: "devicon-flutter-plain colored" },
-  { name: "Tailwind CSS", icon: "devicon-tailwindcss-original colored" },
-  { name: "Node.js", icon: "devicon-nodejs-plain colored" },
+  { name: "Kubernetes", icon: "devicon-kubernetes-line colored" },
+  { name: "Cloudflare", icon: "devicon-cloudflare-plain colored" },
+  { name: "GraphQL", icon: "devicon-graphql-plain colored" },
 ];
 
 const MARQUEE_TECHS = [
-  ...FEATURED_TICKER_TECHS,
-  ...FEATURED_TICKER_TECHS,
-  ...FEATURED_TICKER_TECHS,
-  ...FEATURED_TICKER_TECHS,
+  ...WORLDWIDE_TECH_SHOWCASE,
+  ...WORLDWIDE_TECH_SHOWCASE,
+];
+
+const DUPLICATED_REVIEWS = [
+  ...CUSTOMER_REVIEWS,
+  ...CUSTOMER_REVIEWS,
 ];
 
 export default function HomePage() {
   const featuredServices = SERVICES_CATALOG.slice(0, 6);
-  const featuredCases = PORTFOLIO_CASES.slice(0, 3);
 
   return (
     <div className="text-[#0f172a] selection:bg-blue-600/15 selection:text-blue-900">
@@ -124,8 +166,8 @@ export default function HomePage() {
                 <div className="text-2xs sm:text-xs text-stone-500 font-medium">Core Web Vitals Benchmark</div>
               </div>
               <div className="p-3.5 sm:p-4 bg-white/85 backdrop-blur-md rounded-2xl border border-white/90 shadow-xs hover:border-blue-200 transition-colors">
-                <div className="text-xl sm:text-2xl font-bold text-emerald-600">USA & IN</div>
-                <div className="text-2xs sm:text-xs text-stone-500 font-medium">Dual Delivery Hubs</div>
+                <div className="text-xl sm:text-2xl font-bold text-emerald-600">24/7</div>
+                <div className="text-2xs sm:text-xs text-stone-500 font-medium">Enterprise Support & Uptime</div>
               </div>
             </div>
           </div>
@@ -306,76 +348,87 @@ export default function HomePage() {
       <section className="py-24 relative overflow-hidden gradient-mesh-cyan border-t border-slate-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
+            <div className="max-w-3xl">
               <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-blue-200/60 shadow-xs">
                 Selected Work
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-4 tracking-tight">
-                Proven Engineering in Production
+                Digital Solutions That Deliver Enterprise Value
               </h2>
+              <p className="text-slate-600 mt-4 leading-relaxed font-normal text-base sm:text-lg">
+                Explore our proven track record of delivering enterprise-grade web and mobile applications that drive measurable business growth and digital transformation for global industry leaders.
+              </p>
             </div>
             <Link
-              href="/portfolio"
-              className="inline-flex items-center text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors group"
+              href="/contact"
+              className="inline-flex items-center text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors group shrink-0"
             >
-              <span>Explore All Case Studies</span>
+              <span>Consult on Custom Solutions</span>
               <svg className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredCases.map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ENTERPRISE_SHOWCASE_PROJECTS.map((project) => (
               <div
-                key={item.slug}
-                className="group rounded-2xl glass-surface overflow-hidden flex flex-col justify-between"
+                key={project.id}
+                className="group rounded-2xl glass-surface overflow-hidden flex flex-col justify-between border border-slate-200/80 hover:border-blue-300 hover:shadow-xl transition-all duration-300"
               >
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold text-blue-700 bg-blue-50/90 px-3 py-1 rounded-md border border-blue-200/70">
-                      {item.deliverableType}
-                    </span>
-                    <span className="text-xs text-slate-500 font-medium">Concept Demo</span>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-slate-900 mb-2 tracking-tight group-hover:text-blue-600 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 mb-6 line-clamp-3 leading-relaxed font-normal">
-                    {item.summary}
-                  </p>
-
-                  <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl mb-6 border border-slate-200/70 shadow-2xs">
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-                      Key Outcomes
-                    </div>
-                    <ul className="space-y-1.5">
-                      {item.metrics.slice(0, 2).map((m: { label: string; value: string }, i: number) => (
-                        <li key={i} className="text-xs text-slate-700 flex items-center justify-between">
-                          <span className="text-slate-500">{m.label}</span>
-                          <span className="font-bold text-emerald-600 tabular-nums">{m.value}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {item.technologies.slice(0, 4).map((tech: string, i: number) => (
-                      <span key={i} className="inline-flex items-center gap-1.5 text-xs bg-white/80 border border-slate-200/80 text-slate-700 px-2.5 py-1 rounded-md shadow-2xs font-medium">
-                        <i className={`${getTechDeviconClass(tech)} text-sm`} />
-                        <span>{tech}</span>
+                <div>
+                  {/* Project Image */}
+                  <div className="relative w-full h-52 bg-slate-950 overflow-hidden border-b border-slate-200/80">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={800}
+                      height={450}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="text-3xs font-bold uppercase tracking-wider text-white bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20 shadow-xs">
+                        {project.category}
                       </span>
-                    ))}
+                    </div>
+                  </div>
+
+                  <div className="p-7">
+                    <h3 className="text-xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-blue-600 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 mb-6 leading-relaxed font-normal">
+                      {project.description}
+                    </p>
+
+                    <div className="space-y-2">
+                      <div className="text-3xs font-bold uppercase tracking-wider text-slate-400">
+                        Integrated Toolchain
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="inline-flex items-center gap-1.5 text-xs bg-white/85 border border-slate-200/90 text-slate-700 px-2.5 py-1 rounded-lg font-medium shadow-2xs"
+                          >
+                            <TechIcon name={tech} className="text-sm" />
+                            <span>{tech}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-4 px-8 bg-slate-50/70 border-t border-slate-200/70 flex items-center justify-between">
+                <div className="p-4 px-7 bg-slate-50/80 border-t border-slate-200/70 flex items-center justify-between">
+                  <span className="text-2xs font-semibold text-slate-500">
+                    Enterprise Reference Architecture
+                  </span>
                   <Link
-                    href={`/portfolio/${item.slug}`}
+                    href="/contact"
                     className="text-xs font-bold text-blue-600 group-hover:text-blue-700 flex items-center transition-colors"
                   >
-                    <span>Read Architecture Review</span>
-                    <span className="ml-1">&rarr;</span>
+                    <span>Discuss Similar System &rarr;</span>
                   </Link>
                 </div>
               </div>
@@ -385,34 +438,42 @@ export default function HomePage() {
       </section>
 
       <section className="py-24 relative overflow-hidden gradient-mesh-warm border-t border-slate-200/70">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-blue-200/60 shadow-xs">
-              Client Feedback
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-4 tracking-tight">
-              Trusted by Technical Leaders
-            </h2>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-14 text-center">
+          <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-blue-200/60 shadow-xs">
+            Client Feedback
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-4 tracking-tight">
+            Trusted by Technical Leaders
+          </h2>
+          <p className="text-slate-600 mt-4 leading-relaxed font-normal text-base sm:text-lg max-w-2xl mx-auto">
+            Genuine verified customer reviews and experiences working with WebNote Technologies.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {TESTIMONIALS.map((t: { quote: string; author: string; role: string; company: string }, idx: number) => (
+        {/* Right-to-Left Continuous Scrolling Infinite Marquee */}
+        <div className="relative w-full overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#FAF9F6] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#FAF9F6] to-transparent z-20 pointer-events-none" />
+
+          <div className="animate-marquee-slow flex items-stretch gap-6 sm:gap-8 py-3">
+            {DUPLICATED_REVIEWS.map((r, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-2xl glass-surface flex flex-col justify-between"
+                className="w-[310px] sm:w-[380px] p-7 rounded-2xl glass-surface flex flex-col justify-between shrink-0 hover:shadow-lg transition-all border border-slate-200/80 hover:border-blue-300 select-none"
               >
                 <div className="space-y-4">
-                  <div className="flex text-amber-500 text-sm tracking-wide">
+                  <div className="flex text-amber-500 text-sm tracking-widest" aria-label="5 out of 5 stars">
                     {"★".repeat(5)}
                   </div>
                   <p className="text-sm text-slate-700 italic leading-relaxed font-normal">
-                    &ldquo;{t.quote}&rdquo;
+                    &ldquo;{r.review}&rdquo;
                   </p>
                 </div>
-                <div className="pt-6 mt-6 border-t border-slate-200/70">
-                  <div className="font-bold text-slate-900 text-sm">{t.author}</div>
-                  <div className="text-xs text-slate-500 font-medium">{t.role}</div>
-                  <div className="text-xs font-bold text-blue-600 mt-0.5">{t.company}</div>
+                <div className="pt-5 mt-6 border-t border-slate-200/70 flex items-center justify-between">
+                  <div className="font-bold text-slate-900 text-sm tracking-tight">{r.reviewer}</div>
+                  <span className="text-3xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                    5.0 Rating
+                  </span>
                 </div>
               </div>
             ))}
