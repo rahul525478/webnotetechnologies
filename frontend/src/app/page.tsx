@@ -78,6 +78,23 @@ const MARQUEE_TECHS = [
   ...WORLDWIDE_TECH_SHOWCASE,
 ];
 
+function getInitials(name: string): string {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+const REVIEWER_COLORS = [
+  "from-blue-600 to-indigo-700",
+  "from-indigo-600 to-purple-700",
+  "from-sky-600 to-blue-700",
+  "from-emerald-600 to-teal-700",
+  "from-amber-600 to-orange-700",
+  "from-rose-600 to-pink-700",
+  "from-violet-600 to-indigo-800",
+  "from-teal-600 to-emerald-800",
+];
+
 const DUPLICATED_REVIEWS = [
   ...CUSTOMER_REVIEWS,
   ...CUSTOMER_REVIEWS,
@@ -437,46 +454,87 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24 relative overflow-hidden gradient-mesh-warm border-t border-slate-200/70">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-14 text-center">
+      <section className="py-20 sm:py-24 relative overflow-hidden gradient-mesh-warm border-t border-slate-200/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-10 sm:mb-14 text-center">
           <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-blue-200/60 shadow-xs">
             Client Feedback
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-4 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-4 tracking-tight">
             Trusted by Technical Leaders
           </h2>
-          <p className="text-slate-600 mt-4 leading-relaxed font-normal text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 mt-3 sm:mt-4 leading-relaxed font-normal text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-2">
             Genuine verified customer reviews and experiences working with WebNote Technologies.
           </p>
         </div>
 
         {/* Right-to-Left Continuous Scrolling Infinite Marquee */}
-        <div className="relative w-full overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#FAF9F6] to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#FAF9F6] to-transparent z-20 pointer-events-none" />
+        <div className="relative w-full overflow-hidden select-none">
+          {/* Edge gradient masks scaled responsively */}
+          <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-20 md:w-32 bg-gradient-to-r from-[#FAF9F6] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-20 md:w-32 bg-gradient-to-l from-[#FAF9F6] to-transparent z-20 pointer-events-none" />
 
-          <div className="animate-marquee-slow flex items-stretch gap-6 sm:gap-8 py-3">
-            {DUPLICATED_REVIEWS.map((r, idx) => (
-              <div
-                key={idx}
-                className="w-[310px] sm:w-[380px] p-7 rounded-2xl glass-surface flex flex-col justify-between shrink-0 hover:shadow-lg transition-all border border-slate-200/80 hover:border-blue-300 select-none"
-              >
-                <div className="space-y-4">
-                  <div className="flex text-amber-500 text-sm tracking-widest" aria-label="5 out of 5 stars">
-                    {"★".repeat(5)}
+          <div className="animate-marquee-slow flex items-stretch gap-4 sm:gap-6 md:gap-8 py-3 hover:[animation-play-state:paused] active:[animation-play-state:paused]">
+            {DUPLICATED_REVIEWS.map((r, idx) => {
+              const colorClass = REVIEWER_COLORS[idx % REVIEWER_COLORS.length];
+              return (
+                <div
+                  key={idx}
+                  className="w-[280px] xs:w-[310px] sm:w-[350px] md:w-[380px] p-5 sm:p-6 md:p-7 rounded-2xl glass-surface flex flex-col justify-between shrink-0 hover:shadow-lg transition-all border border-slate-200/80 hover:border-blue-300 min-h-[220px] sm:min-h-[240px]"
+                >
+                  <div className="space-y-3 sm:space-y-4">
+                    {/* Top Row: 5 Stars and Rating Badge */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-0.5 sm:gap-1" aria-label="5 out of 5 stars">
+                        {[...Array(5)].map((_, starIdx) => (
+                          <svg
+                            key={starIdx}
+                            className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400 shrink-0"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <span className="text-3xs font-extrabold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/80 shrink-0">
+                        5.0 ★
+                      </span>
+                    </div>
+
+                    {/* Review Quote with Clean Text Wrapping */}
+                    <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed font-normal">
+                      &ldquo;{r.review}&rdquo;
+                    </p>
                   </div>
-                  <p className="text-sm text-slate-700 italic leading-relaxed font-normal">
-                    &ldquo;{r.review}&rdquo;
-                  </p>
+
+                  {/* Reviewer Info: Avatar Monogram + Name + Verified Badge */}
+                  <div className="pt-4 mt-4 sm:mt-5 border-t border-slate-200/70 flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                      <div
+                        className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br ${colorClass} text-white font-extrabold text-2xs sm:text-xs flex items-center justify-center shadow-xs ring-2 ring-white shrink-0`}
+                        aria-hidden="true"
+                      >
+                        {getInitials(r.reviewer)}
+                      </div>
+                      <div className="min-w-0">
+                        <div className="font-bold text-slate-900 text-xs sm:text-sm tracking-tight truncate">
+                          {r.reviewer}
+                        </div>
+                        <div className="text-3xs text-emerald-700 flex items-center gap-1 font-semibold">
+                          <svg className="w-3 h-3 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span className="truncate">Verified Client</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span className="text-3xs font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200/80 shrink-0">
+                      Google Review
+                    </span>
+                  </div>
                 </div>
-                <div className="pt-5 mt-6 border-t border-slate-200/70 flex items-center justify-between">
-                  <div className="font-bold text-slate-900 text-sm tracking-tight">{r.reviewer}</div>
-                  <span className="text-3xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                    5.0 Rating
-                  </span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

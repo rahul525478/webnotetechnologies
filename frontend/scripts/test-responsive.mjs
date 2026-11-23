@@ -48,14 +48,11 @@ async function runTests() {
       viewport: { width: vp.width, height: vp.height },
       deviceScaleFactor: 1,
     });
-    const page = await context.newPage();
-
-    const consoleErrors = [];
-    page.on("pageerror", (err) => consoleErrors.push(err.message));
 
     for (const route of ROUTES) {
       totalTests++;
       const url = `${BASE_URL}${route}`;
+      const page = await context.newPage();
 
       try {
         const response = await page.goto(url, {
@@ -125,6 +122,8 @@ async function runTests() {
           detail: err.message,
         });
         console.log(`  ❌ [${vp.width}px] ${route} -> Load failed: ${err.message}`);
+      } finally {
+        await page.close();
       }
     }
 

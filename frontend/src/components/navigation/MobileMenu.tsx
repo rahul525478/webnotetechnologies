@@ -153,6 +153,17 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
             {openSubmenu === "tech" && (
               <div className="pl-3 pr-2 py-2 space-y-1 bg-slate-50/90 rounded-xl my-1 border border-slate-200/80">
+                <Link
+                  href="/technicals"
+                  onClick={onClose}
+                  className="flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-bold text-blue-700 bg-blue-50/90 hover:bg-blue-100/90 border border-blue-200/80 transition-colors mb-2"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-blue-600 shadow-2xs" />
+                    <span>Browse Full Directory (122+ Technologies)</span>
+                  </span>
+                  <span>&rarr;</span>
+                </Link>
                 {TECHNICALS_CATALOG.map((tech) => (
                   <Link
                     key={tech.slug}

@@ -59,6 +59,49 @@ export function TechIcon({ name, className = "text-base" }: TechIconProps) {
     );
   }
 
+  if (normalized.includes("shadcn")) {
+    return (
+      <svg className="w-4 h-4 shrink-0 text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <path d="M4 12l8-8 8 8-8 8-8-8z" />
+        <path d="M12 4v16" />
+      </svg>
+    );
+  }
+
+  if (normalized.includes("zustand")) {
+    return (
+      <svg className="w-4 h-4 shrink-0 text-amber-700" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-2h2zm0-4h-2V7h2z" />
+      </svg>
+    );
+  }
+
+  if (normalized.includes("tanstack")) {
+    return (
+      <svg className="w-4 h-4 shrink-0 text-rose-600" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M8 12l3 3 5-6" stroke="#fff" strokeWidth="2.5" fill="none" />
+      </svg>
+    );
+  }
+
+  if (normalized.includes("gsap")) {
+    return (
+      <svg className="w-4 h-4 shrink-0 text-emerald-600" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" fill="none" />
+      </svg>
+    );
+  }
+
+  if (normalized.includes("llm") || normalized.includes("generative") || normalized.includes("deep learning")) {
+    return (
+      <svg className="w-4 h-4 shrink-0 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.17-6.83l-2.83 2.83m-8 8l-2.83 2.83m0-13.66l2.83 2.83m8 8l2.83 2.83" />
+        <circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.3" />
+      </svg>
+    );
+  }
+
   // Official Devicon Icon
   const deviconClass = getTechDeviconClass(name);
   return <i className={`${deviconClass} ${className} shrink-0`} />;

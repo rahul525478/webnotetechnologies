@@ -89,7 +89,8 @@
   will-change: transform;
 }
 
-.animate-marquee-infinite:hover {
+.animate-marquee-infinite:hover,
+.animate-marquee-infinite:active {
   animation-play-state: paused;
 }
 
@@ -100,7 +101,9 @@
   will-change: transform;
 }
 
-.animate-marquee-slow:hover {
+.animate-marquee-slow:hover,
+.animate-marquee-slow:active,
+.animate-marquee-slow:focus-within {
   animation-play-state: paused;
 }
 
